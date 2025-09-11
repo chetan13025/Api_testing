@@ -13,6 +13,17 @@ import static org.junit.Assert.*;
 
 import DataCreate.DataCreate;
 
+import java.awt.Desktop;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileWriter;
+import java.sql.*;
+
+import javax.imageio.ImageIO;
+
 public class BookAPI {
 
     private Response response;
@@ -41,6 +52,61 @@ public class BookAPI {
         }
     }
 
+    // ✅ Log DB snapshot after POST/PUT/PATCH (highlight the new BookId)
+    private void captureDbSnapshot(int bookId, String action) {
+        ExtentTest current = ExtentCucumberListener.getCurrentScenario();
+        if (current == null) return;
+
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://10.10.2.45:3306/library_model_dhin", "root", "dhi123");
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM `library_model_dhin`.`book` LIMIT 1000")) {
+
+            ResultSetMetaData meta = rs.getMetaData();
+            int colCount = meta.getColumnCount();
+
+            StringBuilder html = new StringBuilder("<table border='1' style='border-collapse:collapse;'>");
+
+            // Table header
+            html.append("<tr style='background-color:#f2f2f2;'>");
+            for (int i = 1; i <= colCount; i++) {
+                html.append("<th>").append(meta.getColumnName(i)).append("</th>");
+            }
+            html.append("</tr>");
+
+            // Table rows
+            while (rs.next()) {
+                int currentId;
+                try {
+                    currentId = rs.getInt("bookId"); // ✅ use bookId if exists
+                } catch (Exception e) {
+                    currentId = rs.getInt("book_Id"); // fallback
+                }
+
+                if (currentId == bookId) {
+                    html.append("<tr style='background-color:#90EE90; font-weight:bold;'>"); // highlight
+                } else {
+                    html.append("<tr>");
+                }
+
+                for (int i = 1; i <= colCount; i++) {
+                    html.append("<td>").append(rs.getString(i)).append("</td>");
+                }
+                html.append("</tr>");
+            }
+
+            html.append("</table>");
+
+            // ✅ Attach HTML table into Extent report
+            current.info("Database Snapshot after: " + action);
+            current.info(html.toString());
+
+        } catch (Exception e) {
+            current.warning("⚠️ Failed to capture DB snapshot: " + e.getMessage());
+        }
+    }
+
+
     @Given("I have a random book payload")
     public void i_have_a_random_book_payload() {
         requestBody = DataCreate.generateBookJson();
@@ -62,6 +128,7 @@ public class BookAPI {
         System.out.println("Stored Book ID: " + BookId);
 
         logToExtent("Create Book", requestBody, response);
+        captureDbSnapshot(BookId, "Create Book");
     }
 
     @When("Fetch All Books Details")
@@ -95,9 +162,7 @@ public class BookAPI {
 
     @When("Update Book Request")
     public void Update_Book_Request() {
-        if (BookId == 0) {
-            throw new IllegalStateException("No BookId available. Run POST scenario first.");
-        }
+        if (BookId == 0) throw new IllegalStateException("No BookId available. Run POST first.");
 
         String newJson = DataCreate.generateBookJson();
         String updatePayload = newJson.substring(0, newJson.length() - 1) + ", \"id\": " + BookId + "}";
@@ -114,13 +179,13 @@ public class BookAPI {
         System.out.println("Status Code: " + response.getStatusCode());
 
         logToExtent("Update Book (PUT)", updatePayload, response);
+        captureDbSnapshot(BookId, "Update Book (PUT)");
+        
     }
 
     @When("Update Patch Book Request")
     public void Update_Patch_Book_Request() {
-        if (BookId == 0) {
-            throw new IllegalStateException("No BookId available. Run POST scenario first.");
-        }
+        if (BookId == 0) throw new IllegalStateException("No BookId available. Run POST first.");
 
         String newJson = DataCreate.generateBookJson();
         String title = newJson.split("\"title\"\\s*:\\s*\"")[1].split("\"")[0];
@@ -139,6 +204,8 @@ public class BookAPI {
         System.out.println("Status Code: " + response.getStatusCode());
 
         logToExtent("Update Book (PATCH)", patchPayload, response);
+        captureDbSnapshot(BookId, "Update Book (PATCH)");
+        
     }
 
     @When("Delete Book with ID")
@@ -154,14 +221,16 @@ public class BookAPI {
         System.out.println("Delete Status Code: " + response.getStatusCode());
 
         logToExtent("Delete Book", null, response);
+        captureDbSnapshot(BookId, "Delete Book");
+        
     }
 
-    @Then("the Book response status code should be {int}")
+    @Then("The Book response status code should be {int}")
     public void the_response_status_code_should_be(Integer statusCode) {
         assertEquals(statusCode.intValue(), response.getStatusCode());
     }
 
-    @Then("the Book response should contain {string}")
+    @Then("The Book response should contain {string}")
     public void the_response_should_contain(String key) {
         assertTrue("Response does not contain key: " + key, response.getBody().asString().contains(key));
     }

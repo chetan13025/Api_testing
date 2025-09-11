@@ -4,6 +4,12 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
 import DataCreate.DataCreate;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
@@ -40,6 +46,58 @@ public class LibrariesAPI {
             current.info(MarkupHelper.createCodeBlock(resp.getBody().asString(), CodeLanguage.JSON));
         }
     }
+    private void captureDbSnapshot(int bookId, String action) {
+        ExtentTest current = ExtentCucumberListener.getCurrentScenario();
+        if (current == null) return;
+
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://10.10.2.45:3306/library_model_dhin", "root", "dhi123");
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM `library_model_dhin`.`library` LIMIT 1000")) {
+
+            ResultSetMetaData meta = rs.getMetaData();
+            int colCount = meta.getColumnCount();
+
+            StringBuilder html = new StringBuilder("<table border='1' style='border-collapse:collapse;'>");
+
+            // Table header
+            html.append("<tr style='background-color:#f2f2f2;'>");
+            for (int i = 1; i <= colCount; i++) {
+                html.append("<th>").append(meta.getColumnName(i)).append("</th>");
+            }
+            html.append("</tr>");
+
+            // Table rows
+            while (rs.next()) {
+                int currentId;
+                try {
+                    currentId = rs.getInt("LibraryId"); // ✅ use bookId if exists
+                } catch (Exception e) {
+                    currentId = rs.getInt("library_Id"); // fallback
+                }
+
+                if (currentId == LibraryId) {
+                    html.append("<tr style='background-color:#90EE90; font-weight:bold;'>"); // highlight
+                } else {
+                    html.append("<tr>");
+                }
+
+                for (int i = 1; i <= colCount; i++) {
+                    html.append("<td>").append(rs.getString(i)).append("</td>");
+                }
+                html.append("</tr>");
+            }
+
+            html.append("</table>");
+
+            // ✅ Attach HTML table into Extent report
+            current.info("Database Snapshot after: " + action);
+            current.info(html.toString());
+
+        } catch (Exception e) {
+            current.warning("Failed to capture DB snapshot: " + e.getMessage());
+        }
+    }
 
     @Given("I have a random library payload")
     public void i_have_a_random_library_payload() {
@@ -62,6 +120,7 @@ public class LibrariesAPI {
         System.out.println("Stored Library ID: " + LibraryId);
 
         logToExtent("Create Library", requestBody, response);
+        captureDbSnapshot(LibraryId, "Create Library");
     }
 
     @When("Fetch All Libraries Details")
@@ -114,6 +173,7 @@ public class LibrariesAPI {
         System.out.println("Status Code: " + response.getStatusCode());
 
         logToExtent("Update Library (PUT)", updatePayload, response);
+        captureDbSnapshot(LibraryId, "Update Library (PUT)");
     }
 
     @When("Update Patch Library Request")
@@ -139,6 +199,7 @@ public class LibrariesAPI {
         System.out.println("Status Code: " + response.getStatusCode());
 
         logToExtent("Update Library (PATCH)", patchPayload, response);
+        captureDbSnapshot(LibraryId, "Update Library (PATCH)");
     }
 
     @When("Delete Library with ID")
@@ -154,14 +215,15 @@ public class LibrariesAPI {
         System.out.println("Delete Status Code: " + response.getStatusCode());
 
         logToExtent("Delete Library", null, response);
+        captureDbSnapshot(LibraryId, "Delete Library");
     }
 
-    @Then("the response status code should be {int}")
+    @Then("The response status code should be {int}")
     public void the_response_status_code_should_be(Integer statusCode) {
         assertEquals(statusCode.intValue(), response.getStatusCode());
     }
 
-    @Then("the response should contain {string}")
+    @Then("The response should contain {string}")
     public void the_response_should_contain(String key) {
         assertTrue("Response does not contain key: " + key, response.getBody().asString().contains(key));
     }
