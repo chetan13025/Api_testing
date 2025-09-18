@@ -2,7 +2,7 @@
 
 Feature: Books API Testing
 
-# ===================== POST =====================
+     # ===================== POST =====================
 
   Scenario: Create a new book
     Given I have a random book payload
@@ -38,4 +38,4 @@ Feature: Books API Testing
 	
   Scenario: Deleting Book Details
   	When Delete Book with ID
-  	Then The Book response status code should be 200 
+  	Then The Book response status code should be 200

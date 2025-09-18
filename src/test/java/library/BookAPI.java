@@ -7,6 +7,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.markuputils.CodeLanguage;
 import reports.ExtentCucumberListener;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
@@ -20,9 +21,13 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.*;
-
+import utils.ConfigReader;
 import javax.imageio.ImageIO;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BookAPI {
 
@@ -33,6 +38,7 @@ public class BookAPI {
     private static String tenantId = ConfigReader.getProperty("tenantId");
     private static String author = ConfigReader.getProperty("author");
     private static String Book_endpoint = ConfigReader.getProperty("book_endpoint");
+//    private static String URL = ConfigReader.getProperty("url");    
 
     private void logToExtent(String action, String reqBody, Response resp) {
         ExtentTest current = ExtentCucumberListener.getCurrentScenario();
@@ -105,7 +111,62 @@ public class BookAPI {
             current.warning("⚠️ Failed to capture DB snapshot: " + e.getMessage());
         }
     }
+    private void captureElasticScreenshot(int bookId, String action) {
+        WebDriver driver = null;
+        try {
+            // Launch Chrome
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
 
+            // Open Elasticsearch _search URL
+     String url = "http://10.10.2.81:9200/dhin_library-model_book_index/_search";      
+            driver.get(url);
+
+            // Small wait for JSON to load
+            Thread.sleep(2000);
+           
+                WebElement prettyPrint = driver.findElement(By.xpath("//div[@class='json-formatter-container']"));
+                    prettyPrint.click(); 
+
+            // Use browser search to highlight BookId 
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+//            js.executeScript(
+//                "window.find(arguments[0], false, false, true, false, true, false);", 
+//                String.valueOf(bookId)
+//            );
+            js.executeScript("window.find('" + bookId + "');");
+
+            // Screenshot
+//            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            String path = "target/screenshots/es_" + bookId + "_" + action.replace(" ", "_") + ".png";
+//            Files.createDirectories(Paths.get("target/screenshots/"));
+//            File destFile = new File(path);
+//            org.openqa.selenium.io.FileHandler.copy(srcFile, destFile);
+            String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+            // Attach to Extent
+//            ExtentTest current = ExtentCucumberListener.getCurrentScenario();
+//            if (current != null) {
+//                current.info("Elasticsearch Verification for BookId: " + bookId);
+//                current.addScreenCaptureFromPath(destFile.getAbsolutePath());
+//            }
+            ExtentTest current = ExtentCucumberListener.getCurrentScenario();
+            if (current != null) {
+                current.info("Elasticsearch Verification for BookId: " + bookId);
+                current.addScreenCaptureFromBase64String(base64Screenshot,
+                        "ElasticSearch_" + action.replace(" ", "_"));
+//                MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot, "ElasticSearch Screenshot").build();
+
+            }
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
 
     @Given("I have a random book payload")
     public void i_have_a_random_book_payload() {
@@ -129,6 +190,7 @@ public class BookAPI {
 
         logToExtent("Create Book", requestBody, response);
         captureDbSnapshot(BookId, "Create Book");
+        captureElasticScreenshot(BookId, "Create Book");
     }
 
     @When("Fetch All Books Details")
@@ -180,6 +242,7 @@ public class BookAPI {
 
         logToExtent("Update Book (PUT)", updatePayload, response);
         captureDbSnapshot(BookId, "Update Book (PUT)");
+//        captureElasticScreenshot(BookId, "Update Book (PUT)");
         
     }
 
@@ -205,6 +268,7 @@ public class BookAPI {
 
         logToExtent("Update Book (PATCH)", patchPayload, response);
         captureDbSnapshot(BookId, "Update Book (PATCH)");
+//        captureElasticScreenshot(BookId, "Update Book (PATCH)");
         
     }
 

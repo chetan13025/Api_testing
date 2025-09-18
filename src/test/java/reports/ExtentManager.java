@@ -9,7 +9,7 @@ public class ExtentManager {
     private static ExtentReports extent;
 
     // single shared report file for entire test run
-    private static final String REPORT_PATH = "target/ExtentReport.html";
+    private static final String REPORT_PATH = "target/Report.html";
 
     // get the single ExtentReports instance (lazy init)
     public synchronized static ExtentReports getInstance() {

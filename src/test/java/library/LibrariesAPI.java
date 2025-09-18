@@ -4,11 +4,22 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import DataCreate.DataCreate;
 import io.cucumber.java.en.*;
@@ -98,6 +109,57 @@ public class LibrariesAPI {
             current.warning("Failed to capture DB snapshot: " + e.getMessage());
         }
     }
+    private void captureElasticScreenshot(int LibraryId, String action) {
+        WebDriver driver = null;
+        try {
+            // Launch Chrome
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+
+            // Open Elasticsearch _search URL
+     String url = "http://10.10.2.81:9200/dhin_library-model_library_index/_search";      
+            driver.get(url);
+
+            // Small wait for JSON to load
+            Thread.sleep(2000);
+           
+                WebElement prettyPrint = driver.findElement(By.xpath("//div[@class='json-formatter-container']"));
+                if (!prettyPrint.isSelected()) {
+                    prettyPrint.click();
+                }  
+
+            // Use browser search to highlight BookId (like Ctrl+F → search BookId)
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+//            js.executeScript(
+//                "window.find(arguments[0], false, false, true, false, true, false);", 
+//                String.valueOf(bookId)
+//            );
+            js.executeScript("window.find('" + LibraryId + "');");
+
+            // Screenshot
+//            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            String path = "target/screenshots/es_" + LibraryId + "_" + action.replace(" ", "_") + ".png";
+//            Files.createDirectories(Paths.get("target/screenshots/"));
+//            File destFile = new File(path);
+//            org.openqa.selenium.io.FileHandler.copy(srcFile, destFile);
+            String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+
+            // Attach to Extent
+            ExtentTest current = ExtentCucumberListener.getCurrentScenario();
+            if (current != null) {
+                current.info("Elasticsearch Verification for BookId: " + LibraryId);
+//                current.addScreenCaptureFromPath(destFile.getAbsolutePath());
+                current.addScreenCaptureFromBase64String(base64Screenshot,
+                        "ElasticSearch_" + action.replace(" ", "_"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
 
     @Given("I have a random library payload")
     public void i_have_a_random_library_payload() {
@@ -121,6 +183,7 @@ public class LibrariesAPI {
 
         logToExtent("Create Library", requestBody, response);
         captureDbSnapshot(LibraryId, "Create Library");
+        captureElasticScreenshot(LibraryId, "Create Library");
     }
 
     @When("Fetch All Libraries Details")
@@ -174,6 +237,7 @@ public class LibrariesAPI {
 
         logToExtent("Update Library (PUT)", updatePayload, response);
         captureDbSnapshot(LibraryId, "Update Library (PUT)");
+//        captureElasticScreenshot(LibraryId, "Create Update Library (PUT)");
     }
 
     @When("Update Patch Library Request")
@@ -200,6 +264,7 @@ public class LibrariesAPI {
 
         logToExtent("Update Library (PATCH)", patchPayload, response);
         captureDbSnapshot(LibraryId, "Update Library (PATCH)");
+//        captureElasticScreenshot(LibraryId, "Create Update Library (PATCH)");
     }
 
     @When("Delete Library with ID")
