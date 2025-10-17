@@ -12,7 +12,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
 
-import DataCreate.DataCreate;
+import DataCreate.DataCreateL;
 
 import java.awt.Desktop;
 import java.awt.Rectangle;
@@ -170,7 +170,7 @@ public class BookAPI {
 
     @Given("I have a random book payload")
     public void i_have_a_random_book_payload() {
-        requestBody = DataCreate.generateBookJson();
+        requestBody = DataCreateL.generateBookJson();
         System.out.println("Book JSON:\n" + requestBody);
     }
 
@@ -226,7 +226,7 @@ public class BookAPI {
     public void Update_Book_Request() {
         if (BookId == 0) throw new IllegalStateException("No BookId available. Run POST first.");
 
-        String newJson = DataCreate.generateBookJson();
+        String newJson = DataCreateL.generateBookJson();
         String updatePayload = newJson.substring(0, newJson.length() - 1) + ", \"id\": " + BookId + "}";
 
         response = given().header("Content-Type", "application/json")
@@ -250,7 +250,7 @@ public class BookAPI {
     public void Update_Patch_Book_Request() {
         if (BookId == 0) throw new IllegalStateException("No BookId available. Run POST first.");
 
-        String newJson = DataCreate.generateBookJson();
+        String newJson = DataCreateL.generateBookJson();
         String title = newJson.split("\"title\"\\s*:\\s*\"")[1].split("\"")[0];
         String patchPayload = "{ \"title\": \"" + title + "\" }";
 

@@ -8,60 +8,57 @@ import java.util.Properties;
 
 public class EmailReportSender {
 
+    // configure for your account
+    private static final String SMTP_HOST = "smtp.office365.com";
+    private static final int SMTP_PORT = 587;
+    private static final String FROM_EMAIL = "chetan.patil@dharbor.com";
+    private static final String FROM_PASSWORD = "Athanidhi@2025"; // app password or actual if allowed
+
     public static void sendReport(String toEmail, String reportPath) {
-        // SMTP Configuration (example for Gmail)
-        String host = "smtp.gmail.com";
-        final String username = "yourEmail@gmail.com"; // your email
-        final String password = "yourAppPassword";    // ⚠️ App Password (not normal password)
+        if (reportPath == null) {
+            System.err.println("No report found to send.");
+            return;
+        }
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.host", SMTP_HOST);
+        props.put("mail.smtp.port", String.valueOf(SMTP_PORT));
+        props.put("mail.smtp.ssl.trust", SMTP_HOST);
 
-        Authenticator auth = new Authenticator() {
+        Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(FROM_EMAIL, FROM_PASSWORD);
             }
-        };
+        });
 
         try {
-            Session session = Session.getInstance(props, auth);
-
-            // Create Message
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse(toEmail)
-            );
+            message.setFrom(new InternetAddress(FROM_EMAIL));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
             message.setSubject("Automation Test Report");
 
-            // Body
-            BodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("Hi Team,\n\nPlease find attached the latest automation report.\n\nRegards,\nAutomation Bot");
+            // body
+            BodyPart text = new MimeBodyPart();
+            text.setText("Hi Team,\n\nPlease find attached the latest automation report.\n\nRegards,\nAutomation Bot");
 
-            // Attachment
-            MimeBodyPart attachmentPart = new MimeBodyPart();
+            // attachment
+            MimeBodyPart attachment = new MimeBodyPart();
             DataSource source = new FileDataSource(reportPath);
-            attachmentPart.setDataHandler(new DataHandler(source));
-            attachmentPart.setFileName("TestReport.html");
+            attachment.setDataHandler(new DataHandler(source));
+            attachment.setFileName(new java.io.File(reportPath).getName());
 
-            // Combine body + attachment
             Multipart multipart = new MimeMultipart();
-            multipart.addBodyPart(messageBodyPart);
-            multipart.addBodyPart(attachmentPart);
+            multipart.addBodyPart(text);
+            multipart.addBodyPart(attachment);
 
             message.setContent(multipart);
 
-            // Send mail
             Transport.send(message);
-
-            System.out.println("✅ Report emailed successfully to " + toEmail);
-
-        } catch (Exception e) {
+            System.out.println("✅ Report emailed to " + toEmail + " (attached: " + reportPath + ")");
+        } catch (MessagingException e) {
             e.printStackTrace();
         }
     }

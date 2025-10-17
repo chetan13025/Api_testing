@@ -21,7 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import DataCreate.DataCreate;
+import DataCreate.DataCreateL;
 import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import utils.ConfigReader;
@@ -163,7 +163,7 @@ public class LibrariesAPI {
 
     @Given("I have a random library payload")
     public void i_have_a_random_library_payload() {
-        requestBody = DataCreate.generateLibraryJson();
+        requestBody = DataCreateL.generateLibraryJson();
         System.out.println("Library JSON:\n" + requestBody);
     }
 
@@ -221,7 +221,7 @@ public class LibrariesAPI {
             throw new IllegalStateException("No LibraryId available. Run POST scenario first.");
         }
 
-        String newJson = DataCreate.generateLibraryJson();
+        String newJson = DataCreateL.generateLibraryJson();
         String updatePayload = newJson.substring(0, newJson.length() - 1) + ", \"id\": " + LibraryId + "}";
 
         response = given().header("Content-Type", "application/json")
@@ -246,7 +246,7 @@ public class LibrariesAPI {
             throw new IllegalStateException("No LibraryId available. Run POST scenario first.");
         }
 
-        String newJson = DataCreate.generateLibraryJson();
+        String newJson = DataCreateL.generateLibraryJson();
         String LibraryName = newJson.split("\"libraryName\"\\s*:\\s*\"")[1].split("\"")[0];
         String patchPayload = "{ \"libraryName\": \"" + LibraryName + "\" }";
 

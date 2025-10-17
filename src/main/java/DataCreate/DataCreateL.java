@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
-public class DataCreate {
+public class DataCreateL {
 
     private static final String[] ADJECTIVES = {
         "Hidden", "Lost", "Secret", "Mystic", "Silent", "Forgotten", "Ancient", "Infinite"

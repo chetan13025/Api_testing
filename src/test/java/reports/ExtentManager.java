@@ -22,6 +22,7 @@ public class ExtentManager {
             extent.attachReporter(spark);
             extent.setSystemInfo("Tester", "Chetan Patil");
             extent.setSystemInfo("Project", "API Automation");
+            extent.setSystemInfo("OS", System.getProperty("os.name"));
         }
         return extent;
     }

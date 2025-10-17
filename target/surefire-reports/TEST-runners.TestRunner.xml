@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="runners.TestRunner" time="40.666" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="runners.TestRunner" time="103.348" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\cpatil\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\cpatil\AppData\Local\Temp\surefire13342043192277209191\surefirebooter-20250918122000011_3.jar C:\Users\cpatil\AppData\Local\Temp\surefire13342043192277209191 2025-09-18T12-19-59_888-jvmRun1 surefire-20250918122000011_1tmp surefire_0-20250918122000011_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\cpatil\AppData\Local\Temp\surefire10737944036936385176\surefirebooter-20251017165728999_3.jar C:\Users\cpatil\AppData\Local\Temp\surefire10737944036936385176 2025-10-17T16-57-28_807-jvmRun1 surefire-20251017165728999_1tmp surefire_0-20251017165728999_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\cpatil\eclipse-workspace\UserCreate\target\test-classes;C:\Users\cpatil\eclipse-workspace\UserCreate\target\classes;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-java\7.15.0\cucumber-java-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-core\7.15.0\cucumber-core-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-gherkin\7.15.0\cucumber-gherkin-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.15.0\cucumber-gherkin-messages-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\gherkin\26.2.0\gherkin-26.2.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\messages\22.0.0\messages-22.0.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\tag-expressions\6.0.0\tag-expressions-6.0.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-expressions\17.0.1\cucumber-expressions-17.0.1.jar;C:\Users\cpatil\.m2\repository\io\cucumber\datatable\7.15.0\datatable-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-plugin\7.15.0\cucumber-plugin-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\docstring\7.15.0\docstring-7.15.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\html-formatter\20.4.0\html-formatter-20.4.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\junit-xml-formatter\0.2.0\junit-xml-formatter-0.2.0.jar;C:\Users\cpatil\.m2\repository\io\cucumber\ci-environment\10.0.0\ci-environment-10.0.0.jar;C:\Users\cpatil\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-java\4.20.0\selenium-java-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-api\4.20.0\selenium-api-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.20.0\selenium-chrome-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.20.0\selenium-chromium-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-json\4.20.0\selenium-json-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.20.0\selenium-manager-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v122\4.20.0\selenium-devtools-v122-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.20.0\selenium-devtools-v123-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.20.0\selenium-devtools-v124-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.20.0\selenium-devtools-v85-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.20.0\selenium-edge-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.20.0\selenium-firefox-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-http\4.20.0\selenium-http-4.20.0.jar;C:\Users\cpatil\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.20.0\selenium-ie-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.20.0\selenium-remote-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\cpatil\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\cpatil\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\cpatil\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\cpatil\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\cpatil\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-api\1.37.0\opentelemetry-api-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-context\1.37.0\opentelemetry-context-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.37.0\opentelemetry-exporter-logging-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.37.0\opentelemetry-sdk-common-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.37.0\opentelemetry-sdk-extension-autoconfigure-spi-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.37.0\opentelemetry-sdk-extension-autoconfigure-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.37.0-alpha\opentelemetry-api-incubator-1.37.0-alpha.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.37.0\opentelemetry-sdk-trace-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.37.0\opentelemetry-sdk-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.37.0\opentelemetry-sdk-metrics-1.37.0.jar;C:\Users\cpatil\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.37.0\opentelemetry-sdk-logs-1.37.0.jar;C:\Users\cpatil\.m2\repository\net\bytebuddy\byte-buddy\1.14.14\byte-buddy-1.14.14.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-os\4.20.0\selenium-os-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.20.0\selenium-safari-driver-4.20.0.jar;C:\Users\cpatil\.m2\repository\org\seleniumhq\selenium\selenium-support\4.20.0\selenium-support-4.20.0.jar;C:\Users\cpatil\.m2\repository\io\github\bonigarcia\webdrivermanager\5.9.2\webdrivermanager-5.9.2.jar;C:\Users\cpatil\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\cpatil\.m2\repository\com\google\code\gson\gson\2.11.0\gson-2.11.0.jar;C:\Users\cpatil\.m2\repository\com\google\errorprone\error_prone_annotations\2.27.0\error_prone_annotations-2.27.0.jar;C:\Users\cpatil\.m2\repository\com\github\docker-java\docker-java\3.4.0\docker-java-3.4.0.jar;C:\Users\cpatil\.m2\repository\com\github\docker-java\docker-java-core\3.4.0\docker-java-core-3.4.0.jar;C:\Users\cpatil\.m2\repository\com\github\docker-java\docker-java-api\3.4.0\docker-java-api-3.4.0.jar;C:\Users\cpatil\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\cpatil\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\cpatil\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\cpatil\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\cpatil\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.4.0\docker-java-transport-httpclient5-3.4.0.jar;C:\Users\cpatil\.m2\repository\com\github\docker-java\docker-java-transport\3.4.0\docker-java-transport-3.4.0.jar;C:\Users\cpatil\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\cpatil\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\cpatil\.m2\repository\org\apache\commons\commons-lang3\3.15.0\commons-lang3-3.15.0.jar;C:\Users\cpatil\.m2\repository\org\apache\commons\commons-compress\1.26.2\commons-compress-1.26.2.jar;C:\Users\cpatil\.m2\repository\commons-codec\commons-codec\1.17.0\commons-codec-1.17.0.jar;C:\Users\cpatil\.m2\repository\commons-io\commons-io\2.16.1\commons-io-2.16.1.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\cpatil\.m2\repository\com\sun\mail\jakarta.mail\2.0.1\jakarta.mail-2.0.1.jar;C:\Users\cpatil\.m2\repository\com\sun\activation\jakarta.activation\2.0.1\jakarta.activation-2.0.1.jar;C:\Users\cpatil\.m2\repository\javax\activation\activation\1.1.1\activation-1.1.1.jar;C:\Users\cpatil\.m2\repository\io\cucumber\cucumber-junit\7.15.0\cucumber-junit-7.15.0.jar;C:\Users\cpatil\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\cpatil\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\cpatil\.m2\repository\io\rest-assured\rest-assured\5.3.2\rest-assured-5.3.2.jar;C:\Users\cpatil\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\cpatil\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\cpatil\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\cpatil\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\cpatil\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\cpatil\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\cpatil\.m2\repository\io\rest-assured\json-path\5.3.2\json-path-5.3.2.jar;C:\Users\cpatil\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\cpatil\.m2\repository\io\rest-assured\rest-assured-common\5.3.2\rest-assured-common-5.3.2.jar;C:\Users\cpatil\.m2\repository\io\rest-assured\xml-path\5.3.2\xml-path-5.3.2.jar;C:\Users\cpatil\.m2\repository\com\aventstack\extentreports\5.0.9\extentreports-5.0.9.jar;C:\Users\cpatil\.m2\repository\io\reactivex\rxjava3\rxjava\3.0.4\rxjava-3.0.4.jar;C:\Users\cpatil\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\cpatil\.m2\repository\org\freemarker\freemarker\2.3.30\freemarker-2.3.30.jar;C:\Users\cpatil\.m2\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;C:\Users\cpatil\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\cpatil\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\cpatil\AppData\Local\Temp\surefire13342043192277209191\surefirebooter-20250918122000011_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\cpatil\AppData\Local\Temp\surefire10737944036936385176\surefirebooter-20251017165728999_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.7+6-LTS"/>
@@ -52,7 +52,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\cpatil\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/cpatil/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916/jre/bin/server;C:/Users/cpatil/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\cpatil\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Users\cpatil\Downloads\allure-2.35.1\allure-2.35.1\bin;C:\Program Files\Git\cmd;C:\Users\cpatil\AppData\Local\Programs\Eclipse Adoptium\jdk-21.0.8.9-hotspot\bin;C:\Users\cpatil\AppData\Local\Microsoft\WindowsApps;C:\Users\cpatil\AppData\Roaming\npm;C:\Users\cpatil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17;C:\Users\cpatil\AppData\Local\GitHubDesktop\bin;C:\Users\cpatil\Desktop;;."/>
+    <property name="java.library.path" value="C:\Users\cpatil\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.7.v20250502-0916\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/cpatil/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412/jre/bin/server;C:/Users/cpatil/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\cpatil\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Users\cpatil\Downloads\allure-2.35.1\allure-2.35.1\bin;C:\Program Files\Git\cmd;C:\Users\cpatil\AppData\Local\Programs\Eclipse Adoptium\jdk-21.0.8.9-hotspot\bin;C:\Users\cpatil\AppData\Local\Microsoft\WindowsApps;C:\Users\cpatil\AppData\Roaming\npm;C:\Users\cpatil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17;C:\Users\cpatil\AppData\Local\GitHubDesktop\bin;C:\Users\cpatil\Desktop;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Eclipse Adoptium"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="Create a new book" classname="Books API Testing" time="9.974">
+  <testcase name="Create a new book" classname="Books API Testing" time="32.271">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Create a new book                        &amp#27;[90m# src/test/resources/features/book_api.feature:7&amp#27;[0m
@@ -68,33 +68,33 @@ Scenario: Create a new book                        &amp#27;[90m# src/test/resour
 [ExtentListener] Started scenario: Create a new book (feature: book_api)
 Book JSON:
 {
-  "title": "Secret of World",
-  "author": "Priya Kapoor",
-  "genre": "Science Fiction",
-  "available": true,
-  "publishedYear": 1946
+  "title": "Hidden of Path",
+  "author": "Leena Iyer",
+  "genre": "Mystery",
+  "available": false,
+  "publishedYear": 1937
 }
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mI have a random book payload&amp#27;[0m               &amp#27;[90m# library.BookAPI.i_have_a_random_book_payload()&amp#27;[0m
 Response Body:
 {
-  "id" : 92,
-  "bookId" : 92,
-  "author" : "Priya Kapoor",
-  "genre" : "Science Fiction",
-  "available" : true,
-  "publishedYear" : 1946,
-  "title" : "Secret of World",
+  "id" : 93,
+  "bookId" : 93,
+  "author" : "Leena Iyer",
+  "genre" : "Mystery",
+  "available" : false,
+  "publishedYear" : 1937,
+  "title" : "Hidden of Path",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     },
     "book" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     }
   }
 }
 Status Code: 201
-Stored Book ID: 92
+Stored Book ID: 93
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mCreate Book Request&amp#27;[0m                         &amp#27;[90m# library.BookAPI.Create_Book_Request()&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mThe Book response status code should be &amp#27;[0m&amp#27;[32m&amp#27;[1m201&amp#27;[0m &amp#27;[90m# library.BookAPI.the_response_status_code_should_be(java.lang.Integer)&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mThe Book response should contain &amp#27;[0m&amp#27;[32m&amp#27;[1m"id"&amp#27;[0m        &amp#27;[90m# library.BookAPI.the_response_should_contain(java.lang.String)&amp#27;[0m
@@ -103,13 +103,13 @@ Stored Book ID: 92
     <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
 SLF4J(W): Defaulting to no-operation (NOP) logger implementation
 SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
-Sep 18, 2025 12:20:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 140
-Sep 18, 2025 12:20:07 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 140.0.7339.128. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+Oct 17, 2025 4:57:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 141
+Oct 17, 2025 4:57:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 141.0.7390.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Get all Books" classname="Books API Testing" time="0.668">
+  <testcase name="Get all Books" classname="Books API Testing" time="1.252">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Get all Books                            &amp#27;[90m# src/test/resources/features/book_api.feature:15&amp#27;[0m
@@ -406,19 +406,19 @@ Response Body:
         }
       }
     }, {
-      "id" : 92,
-      "bookId" : 92,
-      "author" : "Priya Kapoor",
-      "genre" : "Science Fiction",
-      "available" : true,
-      "publishedYear" : 1946,
-      "title" : "Secret of World",
+      "id" : 93,
+      "bookId" : 93,
+      "author" : "Leena Iyer",
+      "genre" : "Mystery",
+      "available" : false,
+      "publishedYear" : 1937,
+      "title" : "Hidden of Path",
       "_links" : {
         "self" : {
-          "href" : "http://10.10.2.73:8080/books/92"
+          "href" : "http://10.10.2.73:8080/books/93"
         },
         "book" : {
-          "href" : "http://10.10.2.73:8080/books/92"
+          "href" : "http://10.10.2.73:8080/books/93"
         }
       }
     } ]
@@ -444,26 +444,26 @@ Status Code: 200
 [ExtentListener] Finished scenario: Get all Books
 ]]></system-out>
   </testcase>
-  <testcase name="Get Book Details with ID" classname="Books API Testing" time="0.667">
+  <testcase name="Get Book Details with ID" classname="Books API Testing" time="0.793">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Get Book Details with ID                 &amp#27;[90m# src/test/resources/features/book_api.feature:21&amp#27;[0m
 [ExtentListener] Started scenario: Get Book Details with ID (feature: book_api)
 Response Body:
 {
-  "id" : 92,
-  "bookId" : 92,
-  "author" : "Priya Kapoor",
-  "genre" : "Science Fiction",
-  "available" : true,
-  "publishedYear" : 1946,
-  "title" : "Secret of World",
+  "id" : 93,
+  "bookId" : 93,
+  "author" : "Leena Iyer",
+  "genre" : "Mystery",
+  "available" : false,
+  "publishedYear" : 1937,
+  "title" : "Hidden of Path",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     },
     "book" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     }
   }
 }
@@ -473,26 +473,26 @@ Status Code: 200
 [ExtentListener] Finished scenario: Get Book Details with ID
 ]]></system-out>
   </testcase>
-  <testcase name="Updating Put Book details" classname="Books API Testing" time="3.191">
+  <testcase name="Updating Put Book details" classname="Books API Testing" time="3.78">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Updating Put Book details                &amp#27;[90m# src/test/resources/features/book_api.feature:27&amp#27;[0m
 [ExtentListener] Started scenario: Updating Put Book details (feature: book_api)
 PUT Response Body:
 {
-  "id" : 92,
-  "bookId" : 92,
-  "author" : "Arjun Sharma",
+  "id" : 93,
+  "bookId" : 93,
+  "author" : "Leena Menon",
   "genre" : "Thriller",
-  "available" : false,
-  "publishedYear" : 2015,
-  "title" : "Ancient of Legends",
+  "available" : true,
+  "publishedYear" : 1978,
+  "title" : "Lost of Path",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     },
     "book" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     }
   }
 }
@@ -502,7 +502,7 @@ Status Code: 200
 [ExtentListener] Finished scenario: Updating Put Book details
 ]]></system-out>
   </testcase>
-  <testcase name="Updating Patch Book Request" classname="Books API Testing" time="3.296">
+  <testcase name="Updating Patch Book Request" classname="Books API Testing" time="4.283">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Updating Patch Book Request              &amp#27;[90m# src/test/resources/features/book_api.feature:33&amp#27;[0m
@@ -511,19 +511,19 @@ PATCH Request Body:
 { "title": "Mystic of Echoes" }
 PATCH Response Body:
 {
-  "id" : 92,
-  "bookId" : 92,
-  "author" : "Arjun Sharma",
+  "id" : 93,
+  "bookId" : 93,
+  "author" : "Leena Menon",
   "genre" : "Thriller",
-  "available" : false,
-  "publishedYear" : 2015,
+  "available" : true,
+  "publishedYear" : 1978,
   "title" : "Mystic of Echoes",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     },
     "book" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     }
   }
 }
@@ -533,26 +533,26 @@ Status Code: 200
 [ExtentListener] Finished scenario: Updating Patch Book Request
 ]]></system-out>
   </testcase>
-  <testcase name="Deleting Book Details" classname="Books API Testing" time="3.257">
+  <testcase name="Deleting Book Details" classname="Books API Testing" time="4.203">
     <system-out><![CDATA[
 @BookAPI
 Scenario: Deleting Book Details                    &amp#27;[90m# src/test/resources/features/book_api.feature:39&amp#27;[0m
 [ExtentListener] Started scenario: Deleting Book Details (feature: book_api)
 Delete Response Body:
 {
-  "id" : 92,
-  "bookId" : 92,
-  "author" : "Arjun Sharma",
+  "id" : 93,
+  "bookId" : 93,
+  "author" : "Leena Menon",
   "genre" : "Thriller",
-  "available" : false,
-  "publishedYear" : 2015,
+  "available" : true,
+  "publishedYear" : 1978,
   "title" : "Mystic of Echoes",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     },
     "book" : {
-      "href" : "http://10.10.2.73:8080/books/92"
+      "href" : "http://10.10.2.73:8080/books/93"
     }
   }
 }
@@ -562,7 +562,7 @@ Delete Status Code: 200
 [ExtentListener] Finished scenario: Deleting Book Details
 ]]></system-out>
   </testcase>
-  <testcase name="Create a new Library" classname="Libraries API Testing" time="7.832">
+  <testcase name="Create a new Library" classname="Libraries API Testing" time="10.5">
     <system-out><![CDATA[
 @Libraries
 Scenario: Create a new Library                &amp#27;[90m# src/test/resources/features/libraries.feature:7&amp#27;[0m
@@ -570,41 +570,41 @@ Scenario: Create a new Library                &amp#27;[90m# src/test/resources/f
 [ExtentListener] Started scenario: Create a new Library (feature: libraries)
 Library JSON:
 {
-  "libraryName": "Maple Grand Center",
-  "createdDate": "2025-09-18T12:20:22.083+05:30",
-  "location": "Harborfield"
+  "libraryName": "Spring Maple Hall",
+  "createdDate": "2025-10-17T16:58:17.585+05:30",
+  "location": "Springtown"
 }
   &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mI have a random library payload&amp#27;[0m       &amp#27;[90m# library.LibrariesAPI.i_have_a_random_library_payload()&amp#27;[0m
 Response Body:
 {
-  "id" : 82,
-  "libraryId" : 82,
-  "libraryName" : "Maple Grand Center",
-  "createdDate" : "2025-09-18T06:50:22.603+00:00",
-  "location" : "Harborfield",
+  "id" : 83,
+  "libraryId" : 83,
+  "libraryName" : "Spring Maple Hall",
+  "createdDate" : "2025-10-17T11:28:19.954+00:00",
+  "location" : "Springtown",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     },
     "library" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     }
   }
 }
 Status Code: 201
-Stored Library ID: 82
+Stored Library ID: 83
   &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mCreate Library Request&amp#27;[0m                 &amp#27;[90m# library.LibrariesAPI.Create_library_Request()&amp#27;[0m
   &amp#27;[32mThen &amp#27;[0m&amp#27;[32mThe response status code should be &amp#27;[0m&amp#27;[32m&amp#27;[1m201&amp#27;[0m &amp#27;[90m# library.LibrariesAPI.the_response_status_code_should_be(java.lang.Integer)&amp#27;[0m
   &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mThe response should contain &amp#27;[0m&amp#27;[32m&amp#27;[1m"id"&amp#27;[0m        &amp#27;[90m# library.LibrariesAPI.the_response_should_contain(java.lang.String)&amp#27;[0m
 [ExtentListener] Finished scenario: Create a new Library
 ]]></system-out>
-    <system-err><![CDATA[Sep 18, 2025 12:20:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 140
-Sep 18, 2025 12:20:26 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 140.0.7339.128. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+    <system-err><![CDATA[Oct 17, 2025 4:58:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 141
+Oct 17, 2025 4:58:23 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 141.0.7390.77. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.20.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="Get all Libraries" classname="Libraries API Testing" time="0.652">
+  <testcase name="Get all Libraries" classname="Libraries API Testing" time="0.955">
     <system-out><![CDATA[
 @Libraries
 Scenario: Get all Libraries                   &amp#27;[90m# src/test/resources/features/libraries.feature:16&amp#27;[0m
@@ -711,17 +711,17 @@ Response Body:
         }
       }
     }, {
-      "id" : 82,
-      "libraryId" : 82,
-      "libraryName" : "Maple Grand Center",
-      "createdDate" : "2025-09-18T06:50:22.603+00:00",
-      "location" : "Harborfield",
+      "id" : 83,
+      "libraryId" : 83,
+      "libraryName" : "Spring Maple Hall",
+      "createdDate" : "2025-10-17T11:28:19.954+00:00",
+      "location" : "Springtown",
       "_links" : {
         "self" : {
-          "href" : "http://10.10.2.73:8080/libraries/82"
+          "href" : "http://10.10.2.73:8080/libraries/83"
         },
         "library" : {
-          "href" : "http://10.10.2.73:8080/libraries/82"
+          "href" : "http://10.10.2.73:8080/libraries/83"
         }
       }
     } ]
@@ -747,24 +747,24 @@ Status Code: 200
 [ExtentListener] Finished scenario: Get all Libraries
 ]]></system-out>
   </testcase>
-  <testcase name="Get Library Details with ID" classname="Libraries API Testing" time="0.643">
+  <testcase name="Get Library Details with ID" classname="Libraries API Testing" time="0.717">
     <system-out><![CDATA[
 @Libraries
 Scenario: Get Library Details with ID         &amp#27;[90m# src/test/resources/features/libraries.feature:22&amp#27;[0m
 [ExtentListener] Started scenario: Get Library Details with ID (feature: libraries)
 Response Body:
 {
-  "id" : 82,
-  "libraryId" : 82,
-  "libraryName" : "Maple Grand Center",
-  "createdDate" : "2025-09-18T06:50:22.603+00:00",
-  "location" : "Harborfield",
+  "id" : 83,
+  "libraryId" : 83,
+  "libraryName" : "Spring Maple Hall",
+  "createdDate" : "2025-10-17T11:28:19.954+00:00",
+  "location" : "Springtown",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     },
     "library" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     }
   }
 }
@@ -774,24 +774,24 @@ Status Code: 200
 [ExtentListener] Finished scenario: Get Library Details with ID
 ]]></system-out>
   </testcase>
-  <testcase name="Updating Put Library details" classname="Libraries API Testing" time="3.162">
+  <testcase name="Updating Put Library details" classname="Libraries API Testing" time="3.799">
     <system-out><![CDATA[
 @Libraries
 Scenario: Updating Put Library details        &amp#27;[90m# src/test/resources/features/libraries.feature:28&amp#27;[0m
 [ExtentListener] Started scenario: Updating Put Library details (feature: libraries)
 PUT Response Body:
 {
-  "id" : 82,
-  "libraryId" : 82,
-  "libraryName" : "Green River Center",
-  "createdDate" : "2025-09-18T06:50:22.603+00:00",
-  "location" : "Harborborough",
+  "id" : 83,
+  "libraryId" : 83,
+  "libraryName" : "Stone Hill Library",
+  "createdDate" : "2025-10-17T11:28:19.954+00:00",
+  "location" : "GreenCity",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     },
     "library" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     }
   }
 }
@@ -801,26 +801,26 @@ Status Code: 200
 [ExtentListener] Finished scenario: Updating Put Library details
 ]]></system-out>
   </testcase>
-  <testcase name="Updating Patch Library details" classname="Libraries API Testing" time="3.167">
+  <testcase name="Updating Patch Library details" classname="Libraries API Testing" time="3.767">
     <system-out><![CDATA[
 @Libraries
 Scenario: Updating Patch Library details      &amp#27;[90m# src/test/resources/features/libraries.feature:32&amp#27;[0m
 [ExtentListener] Started scenario: Updating Patch Library details (feature: libraries)
 PATCH Request Body:
-{ "libraryName": "Spring Silver Library" }
+{ "libraryName": "Wood Bright Center" }
 PATCH Response Body:
 {
-  "id" : 82,
-  "libraryId" : 82,
-  "libraryName" : "Spring Silver Library",
-  "createdDate" : "2025-09-18T06:50:22.603+00:00",
-  "location" : "Harborborough",
+  "id" : 83,
+  "libraryId" : 83,
+  "libraryName" : "Wood Bright Center",
+  "createdDate" : "2025-10-17T11:28:19.954+00:00",
+  "location" : "GreenCity",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     },
     "library" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     }
   }
 }
@@ -830,24 +830,24 @@ Status Code: 200
 [ExtentListener] Finished scenario: Updating Patch Library details
 ]]></system-out>
   </testcase>
-  <testcase name="Deleting Library details" classname="Libraries API Testing" time="3.178">
+  <testcase name="Deleting Library details" classname="Libraries API Testing" time="4.609">
     <system-out><![CDATA[
 @Libraries
 Scenario: Deleting Library details            &amp#27;[90m# src/test/resources/features/libraries.feature:36&amp#27;[0m
 [ExtentListener] Started scenario: Deleting Library details (feature: libraries)
 Delete Response Body:
 {
-  "id" : 82,
-  "libraryId" : 82,
-  "libraryName" : "Spring Silver Library",
-  "createdDate" : "2025-09-18T06:50:22.603+00:00",
-  "location" : "Harborborough",
+  "id" : 83,
+  "libraryId" : 83,
+  "libraryName" : "Wood Bright Center",
+  "createdDate" : "2025-10-17T11:28:19.954+00:00",
+  "location" : "GreenCity",
   "_links" : {
     "self" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     },
     "library" : {
-      "href" : "http://10.10.2.73:8080/libraries/82"
+      "href" : "http://10.10.2.73:8080/libraries/83"
     }
   }
 }

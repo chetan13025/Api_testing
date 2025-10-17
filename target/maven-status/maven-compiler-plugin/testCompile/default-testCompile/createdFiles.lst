@@ -6,7 +6,6 @@ reports\ExtentCucumberListener$1.class
 runners\LibrariesRunner.class
 library\BookAPI.class
 library\LibrariesAPI.class
-utils\DBUtils.class
 runners\BookRunner.class
 runners\MasterTestRunner.class
 reports\ExtentManager.class
